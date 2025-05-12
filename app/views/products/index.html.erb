@@ -1,11 +1,17 @@
-<h1>Products</h1>
+<div class="container mt-6">
+  <h1 class="title is-2">Products</h1>
 
-<%= link_to "New product", new_product_path %>
+  <%= link_to "New product", new_product_path, class: "button is-primary mb-4" %>
 
-<div id="products">
-  <% @products.each do |product| %>
-    <div>
-      <%= link_to product.name, product %>
-    </div>
-  <% end %>
+  <div class="panel is-link">
+    <p class="panel-heading">Products</p>
+    <% @products.each do |product| %>
+      <a class="panel-block" href="<%= product_path(product) %>">
+        <span class="panel-icon">
+          <i class="fas fa-box" aria-hidden="true"></i>
+        </span>
+        <%= product.name %>
+      </a>
+    <% end %>
+  </div>
 </div>

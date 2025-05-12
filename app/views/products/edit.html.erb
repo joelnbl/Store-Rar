@@ -1,4 +1,6 @@
-<h1>Edit product</h1>
+<div class="container mt-6">
+  <h1 class="title is-2">Edit product</h1>
 
-<%= render "form", product: @product %>
-<%= link_to "Cancel", products_path %>
+  <%= render "form", product: @product %>
+  <%= link_to "Cancel", products_path, class: "button is-light mt-4" %>
+</div>
