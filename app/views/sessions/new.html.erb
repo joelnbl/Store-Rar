@@ -1,0 +1,56 @@
+<div class="container mt-6">
+  <div class="columns is-centered">
+    <div class="column is-one-third">
+      <div class="box">
+        <h1 class="title is-4 has-text-centered mb-5">Sign In</h1>
+
+        <% if flash[:alert] %>
+          <div class="notification is-danger"><%= flash[:alert] %></div>
+        <% end %>
+        
+        <% if flash[:notice] %>
+          <div class="notification is-success"><%= flash[:notice] %></div>
+        <% end %>
+
+        <%= form_with url: session_path do |form| %>
+          <div class="field">
+            <div class="control has-icons-left">
+              <%= form.email_field :email_address, 
+                  required: true, 
+                  autofocus: true, 
+                  autocomplete: "username", 
+                  placeholder: "Enter your email address", 
+                  value: params[:email_address],
+                  class: "input" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control has-icons-left">
+              <%= form.password_field :password, 
+                  required: true, 
+                  autocomplete: "current-password", 
+                  placeholder: "Enter your password", 
+                  maxlength: 72,
+                  class: "input" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.submit "Sign in", class: "button is-primary is-fullwidth" %>
+          </div>
+        <% end %>
+
+        <div class="has-text-centered mt-4">
+          <%= link_to "Forgot password?", new_password_path, class: "has-text-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

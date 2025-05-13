@@ -25,6 +25,30 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <strong>Store</strong>
+        <% end %>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if authenticated? %>
+                <%= button_to "Log out", session_path, method: :delete, class: "button is-light" %>
+              <% else %>
+                <%= link_to "Sign in", new_session_path, class: "button is-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="section">
+      <%= yield %>
+    </main>
   </body>
 </html>

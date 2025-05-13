@@ -1,7 +1,7 @@
 <div class="container mt-6">
   <h1 class="title is-2">Products</h1>
 
-  <%= link_to "New product", new_product_path, class: "button is-primary mb-4" %>
+  <%= link_to "New product", new_product_path, class: "button is-primary mb-4" if authenticated?%>
 
   <div class="panel is-link">
     <p class="panel-heading">Products</p>
